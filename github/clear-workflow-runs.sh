@@ -27,3 +27,9 @@ do
     gh api repos/$org/$repo/actions/runs/$run_id -X DELETE >/dev/null
   done
 done
+
+# If this does not work:
+# 1. Run this command to get all workflow IDs:
+#   curl -X GET https://api.github.com/repos/<account>/<repo>/actions/runs?per_page=200 -H "Accept: application/json" -H "Authorization: Bearer <personal access token>"
+# 2. And for each workflow ID, run this:
+#   curl -X DELETE https://api.github.com/repos/<account>/<repo>/actions/runs/<id> -H "Accept: application/json" -H "Authorization: Bearer <personal access token>"
